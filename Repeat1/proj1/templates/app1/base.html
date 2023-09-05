@@ -1,0 +1,36 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+
+        <meta charset="utf-8">
+
+        <title></title>
+
+
+    </head>
+
+    <body>
+       
+         
+
+        <nav class = 'navbar navbar-default navbar-static-top'>
+            <div class="container">
+                <ul class ="nav navbar-nav">
+                    <li><a class ='navbar-brand' href="{% url 'index' %}">Django</a></li> <!--here below  index in curl brackets represent the name of the url created in views in function -->
+                    <li><a class ='navbar-link' href="{% url 'admin:index' %}">Admin</a></li>
+                    <li><a class ='navbar-link' href="{% url 'app1:register' %}">Register</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a class='navbar-link' href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                    <li><a class ='navbar-link' href="{% url 'app1:user_login %}">Login</a></li>
+                    {% endif %}
+                </ul>
+
+            </div>
+
+        </nav>
+
+     {% block body_block %}
+     {% endblock %}
+    </body>
+</html>
